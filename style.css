@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgba(194, 194, 200, 0.74)0%, rgb(115, 114, 123)50%, rgba(194, 194, 200, 0.74)100%);
+}
+
+.container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.can {
+    position: absolute;
+    left: 45%;
+    transform: translateX(-50%);
+    bottom: 80px;
+    z-index: 2;
+    transition: 0.7s;
+    --left: 340px;
+    width: 500px;
+    height: 500px;
+    display: flex;
+}
+
+.pack1 {
+    --bg: url(bg1.jpeg)
+}
+
+.pack2 {
+    --bg: url(sprite.png)
+}
+
+.can .pack {
+    position: absolute;
+    background: var(--bg) var(--left), url(can.png);
+    background-size: auto 100%;
+    width: 370px;
+    aspect-ratio: 2 / 2.7;
+    background-blend-mode: multiply;
+    mask-image: url(can.png);
+    mask-size: auto 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.7s;
+}
+
+.container .can:hover {
+    --left: -1000px;
+    transform: translateX(-50%) translateY(-20%);
+}
+
+.container .can .pack:nth-child(2) {
+    opacity: 0;
+}
+
+.container .can:hover .pack:nth-child(2) {
+    opacity: 1;
+    background-position: -7px 0px;
+}
